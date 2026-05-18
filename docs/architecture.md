@@ -53,7 +53,7 @@ Tipos auxiliares, estados y contratos internos.
 
 ## factories/
 
-Creación e inicialización de entidades.
+Creación e inicialización de entidades, los factories son funciones puras encargadas únicamente de construir entidades válidas del dominio. No contienen lógica de negocio ni persistencia.
 
 ## services/
 
