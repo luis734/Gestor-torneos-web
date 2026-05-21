@@ -2,7 +2,7 @@
 
 Sistema para administrar torneos con soporte para:
 
-- múltiples tipos de torneo
+- múltiples tipos de torneo (PROXIMAMENTE)
 - generación de rondas
 - gestión de mesas
 - registro de resultados
@@ -38,7 +38,10 @@ src/
 ├── feature/
 │   └── tournament/
 │       ├── models/
+│       ├── types/
+│       ├── factories/
 │       ├── services/
+│       ├── validators/
 │       ├── hooks/
 │       ├── components/
 │       ├── utils/
@@ -62,6 +65,7 @@ src/
 docs/
 ├── README.md
 ├── architecture.md
+├── validators.md
 ├── models.md
 ├── flows.md
 └── setup.md
