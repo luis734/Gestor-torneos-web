@@ -1,73 +1,230 @@
-# React + TypeScript + Vite
+# 🏆 Tournament Manager Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de gestión de torneos desarrollado con React + TypeScript.
 
-Currently, two official plugins are available:
+> [!WARNING]
+> Proyecto actualmente en construcción.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Este proyecto nació principalmente como una forma de aprender React, TypeScript y arquitectura frontend/backend orientada a dominio, por lo que probablemente existan decisiones mejorables, refactors pendientes y funcionalidades incompletas.
 
-## React Compiler
+Aun así, el objetivo principal es construir una base sólida, extensible y mantenible para soportar distintos tipos de torneos y sistemas de puntuación en el futuro.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+# ✨ Objetivos del proyecto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+El sistema busca soportar:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* ✅ Gestión de jugadores
+* ✅ Generación de rondas
+* ✅ Generación de mesas
+* ✅ Cálculo de standings
+* ✅ Validaciones de dominio
+* 🚧 Distintos tipos de torneo
+* 🚧 Distintos sistemas de puntuación
+* 🚧 Persistencia de datos
+* 🚧 Backend/API
+* 🚧 Interfaz completa de administración
+* 🚧 Historial de torneos
+* 🚧 Exportación de resultados
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 🧠 Filosofía del proyecto
+
+El enfoque principal es separar claramente:
+
+* Modelos
+* Servicios
+* Validadores
+* Factories
+* Tipos
+* Lógica de negocio
+
+La idea es evitar mezclar lógica compleja dentro de componentes React y mantener el dominio del torneo desacoplado de la UI.
+
+---
+
+# 🛠️ Stack actual
+
+## Frontend
+
+* React 19
+* TypeScript
+* Vite
+
+## Testing
+
+* Vitest
+
+## Calidad de código
+
+* ESLint
+
+---
+
+# 📁 Arquitectura actual
+
+```text
+src/
+└── features/
+    └── tournament/
+        ├── factories/
+        ├── models/
+        ├── services/
+        ├── types/
+        ├── utils/
+        └── validators/
+```
+# 🧪 Testing
+
+Actualmente se utilizan pruebas unitarias con Vitest.
+
+Ejemplo:
+
+```text
+calculateStandings.test.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+El objetivo es validar:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* standings
+* tie-breaks
+* generación de rondas
+* edge cases
+* validaciones
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+# 🚀 Scripts disponibles
+
+## Desarrollo
+
+```bash
+npm run dev
 ```
+
+---
+
+## Build
+
+```bash
+npm run build
+```
+
+---
+
+## Ejecutar tests
+
+```bash
+npm run test
+```
+
+---
+
+## Ejecutar tests una sola vez
+
+```bash
+npm run test:run
+```
+
+---
+
+## Linter
+
+```bash
+npm run lint
+```
+
+---
+
+# 📚 Documentación adicional
+
+El proyecto ya incluye documentación interna:
+
+```text
+docs/
+├── architecture.md
+├── models.md
+├── validators.md
+└── README.md
+```
+
+---
+
+# 🧩 Estado actual
+
+Actualmente el proyecto:
+
+* NO utiliza base de datos
+* NO tiene backend real
+* se enfoca principalmente en la lógica del dominio
+* está pensado para evolucionar gradualmente
+
+La prioridad inicial fue aprender:
+
+* React
+* TypeScript
+* arquitectura
+* testing
+* separación de responsabilidades
+
+antes de intentar construir un sistema completo de producción.
+
+---
+
+# 🎯 Objetivos futuros
+
+## Arquitectura
+
+* [ ] Mejorar separación de capas
+* [ ] Introducir manejo de estado global
+* [ ] Modularizar lógica de torneo
+
+## Torneos
+
+* [ ] Swiss
+* [ ] Round Robin
+* [ ] Eliminación directa
+* [ ] Multiplayer formats
+
+## Puntuación
+
+* [ ] Sistemas configurables
+* [ ] Tie-breaks avanzados
+* [ ] Desempates personalizados
+
+## Persistencia
+
+* [ ] Backend
+* [ ] API REST
+* [ ] Base de datos
+* [ ] Autenticación
+
+## UX/UI
+
+* [ ] Dashboard
+* [ ] Administración de torneos
+* [ ] Visualización de standings
+* [ ] Gestión de rondas en tiempo real
+
+---
+
+# ⚠️ Disclaimer
+
+Este proyecto forma parte de mi proceso de aprendizaje.
+
+Seguramente existan:
+
+* malas prácticas
+* decisiones mejorables
+* refactors pendientes
+* edge cases sin cubrir
+
+Pero precisamente el objetivo es aprender iterando y mejorando la arquitectura conforme el proyecto evoluciona 🚀
+
+---
+
+# 📄 Licencia
+
+Proyecto personal de aprendizaje.
