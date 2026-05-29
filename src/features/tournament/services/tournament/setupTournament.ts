@@ -20,12 +20,11 @@ export function setupTournament(playersAlias: string[], settings: TournamentSett
     // Generar el emparejamiento de rondas (mesas (jugadores))
     const scheduling = generateTournamentSchedule(playerIds, settings.playersPerTable, settings.roundsCount);
     
-    // Crear el objeto de torneo
-    const tournament = createTournament({name: tournamentName, players: playersList, settings});
-    
     // Generar los objetos de rondas en base al scheduling
     const roundsList = generateTournamentRounds(scheduling);
-    tournament.rounds = roundsList;
+    
+    // Crear el objeto de torneo
+    const tournament = createTournament({name: tournamentName, players: playersList, settings, rounds: roundsList});
 
     return tournament;
 }

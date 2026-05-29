@@ -13,7 +13,7 @@ export const createTournament = (
         status: "draft",
         currentRound: 0,
         players: input.players,
-        rounds: [],
+        rounds: input.rounds,
         settings: input.settings,
         createdAt: timestamp,
         updatedAt: timestamp,
