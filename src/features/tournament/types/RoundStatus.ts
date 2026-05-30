@@ -1,4 +1,4 @@
 export type RoundStatus = 
 | "pending"
-| "active"
+| "in_progress"
 | "completed";
