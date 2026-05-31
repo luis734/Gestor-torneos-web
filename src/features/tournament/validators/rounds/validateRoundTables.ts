@@ -13,7 +13,7 @@ export function validateRoundTables(tables: Table[], playersPerTable: number): V
 
     // Validamos las mesas de la ronda
     for (const table of tables) {
-        // Validamos si los jugadores en la mesa son validos
+        // Validamos los jugadores de la mesa
         const results: ValidationResult = validateTablePlayers(table.playerIds, playersPerTable);
         if (!results.isValid) {
             errors.push(...results.errors);
