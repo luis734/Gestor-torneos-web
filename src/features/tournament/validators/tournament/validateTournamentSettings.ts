@@ -18,12 +18,16 @@ export function validateTournamentSettings(settings: TournamentSettings): Valida
     }
 
     // Validaciones sobre las rondas
-    if (settings.roundsCount !== undefined && settings.roundsCount <= 0) {
-        errors.push("Round number must be more than 0");
+    if (settings.roundsMode === "manual" && settings.roundsCount === undefined) {
+        errors.push(
+            "Rounds in manual mode requires a rounds count"
+        );
     }
-
-    if (settings.roundsMode === "manual" && (settings.roundsCount === undefined || settings.roundsCount <= 0)) {
-        errors.push("Rounds in manual mode needs to define Rounds number");
+    
+    if (settings.roundsCount !== undefined && settings.roundsCount <= 0) {
+        errors.push(
+            "Round number must be more than 0"
+        );
     }
 
     // Validaciones sobre las mesas
