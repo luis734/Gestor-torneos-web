@@ -6,8 +6,8 @@ export function updateTournamentStatus(tournament: Tournament): Tournament {
     }
 
     const counts = tournament.rounds.reduce(
-        (acc, table) => {
-            acc[table.status] = (acc[table.status] ?? 0) + 1;
+        (acc, round) => {
+            acc[round.status] = (acc[round.status] ?? 0) + 1;
             return acc;
         },
         {} as Record<string, number>
@@ -30,10 +30,12 @@ export function updateTournamentStatus(tournament: Tournament): Tournament {
     }
 
     // Alguna ronda iniciada o completada
-    if (counts["in_progress"] >= 1 || counts["completed"] >= 1) {
+    if ((counts["in_progress"] ?? 0) >= 1 || (counts["completed"] ?? 0) >= 1) {
         return {
             ...tournament,
             status: "active"
         };
     }
+
+    return tournament;
 }

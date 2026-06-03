@@ -81,4 +81,13 @@ describe("updateTournamentStatus", () => {
 
         expect(result.status).toBe("active");
     });
+
+    // * 6
+    it("returns draft when the tournament has no rounds", () => {
+        const torneo = createTestTournament();
+
+        const result = updateTournamentStatus(torneo);
+
+        expect(result.status).toBe("draft");
+    });
 });
