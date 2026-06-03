@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { validatePlayerAlias } from "./validatePlayerAlias";
+import { validatePlayerAlias } from "../../features/tournament/validators/player/validatePlayerAlias";
 
 describe("validatePlayerAlias", () => {
     it("return valid for a correct alias", () => {

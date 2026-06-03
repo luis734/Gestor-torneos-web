@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { generateTournamentSchedule } from "./generateTournamentSchedule";
+import { generateTournamentSchedule } from "../../features/tournament/services/scheduler/generateTournamentSchedule";
 
 const playerIds = ["p1","p2","p3","p4"];
 const playersPerTable = 2;

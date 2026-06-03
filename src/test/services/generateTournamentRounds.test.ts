@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { generateTournamentRounds } from "./generateTournamentRounds";
+import { generateTournamentRounds } from "../../features/tournament/services/rounds/generateTournamentRounds";
 
 describe("generateTournamentRounds", () => {
     it("generate the correct amount of rounds", () => {

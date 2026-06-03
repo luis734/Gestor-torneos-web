@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { validateTournamentPlayers } from "./validateTournamentPlayers";
+import { validateTournamentPlayers } from "../../features/tournament/validators/tournament/validateTournamentPlayers";
 
 describe("validateTournamentPlayers", () => {
     // * 1

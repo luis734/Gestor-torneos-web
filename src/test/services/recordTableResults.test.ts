@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { createTable } from "../../factories/createTable";
-import { recordTableResults } from "./recordTableResults";
+import { createTable } from "../../features/tournament/factories/createTable";
+import { recordTableResults } from "../../features/tournament/services/rounds/recordTableResults";
 
 function createTestTable() {
     return createTable({

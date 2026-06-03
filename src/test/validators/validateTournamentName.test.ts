@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { validateTournamentName } from "./validateTournamentName";
+import { validateTournamentName } from "../../features/tournament/validators/tournament/validateTournamentName";
 
 describe("validateTournamentName", () => {
     it("returns valida for a correct tournament name", () => {
