@@ -6,13 +6,14 @@ import { createTestRound } from "../helpers/createTestRound";
 
 describe("updateTournamentStatus", () => {
     // * 1
-    it("should keep paused status", () => {
-        const torneo = createTestTournament({status: "paused"});
+    // ! Se elimino el estado paused por lo que este test deja de ser necesario
+    // it("should keep paused status", () => {
+    //     const torneo = createTestTournament({status: "paused"});
 
-        const result = updateTournamentStatus(torneo);
+    //     const result = updateTournamentStatus(torneo);
 
-        expect(result.status).toBe("paused");
-    });
+    //     expect(result.status).toBe("paused");
+    // });
 
     // * 2
     it("should set draft when all rounds are pending", () => {

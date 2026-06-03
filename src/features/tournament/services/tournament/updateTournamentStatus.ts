@@ -1,9 +1,6 @@
 import type { Tournament } from "../../models/Tournament";
 
 export function updateTournamentStatus(tournament: Tournament): Tournament {
-    if (tournament.status === "paused") {
-        return tournament;
-    }
 
     const counts = tournament.rounds.reduce(
         (acc, round) => {
