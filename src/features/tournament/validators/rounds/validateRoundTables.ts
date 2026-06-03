@@ -17,7 +17,7 @@ export function validateRoundTables(tables: Table[], playersPerTable: number): V
         const results: ValidationResult = validateTablePlayers(table.playerIds, playersPerTable);
         if (!results.isValid) {
             errors.push(...results.errors);
-            // continue; // En caso de no querer errores secundarios se descomenta esta linea.
+            continue;
         }
 
         // Validamos si los jugadores no se repiten en distintas mesas de la ronda
