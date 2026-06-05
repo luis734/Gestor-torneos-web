@@ -12,18 +12,8 @@ export function validateTournamentSettings(settings: TournamentSettings): Valida
     if (!settings.scoringSystem) {
         errors.push("Scoring system is required");
     }
-    
-    if (!settings.roundsMode) {
-        errors.push("Rounds mode is required");
-    }
 
-    // Validaciones sobre las rondas
-    if (settings.roundsMode === "manual" && settings.roundsCount === undefined) {
-        errors.push(
-            "Rounds in manual mode requires a rounds count"
-        );
-    }
-    
+    // Validaciones sobre las rondas    
     if (settings.roundsCount !== undefined && settings.roundsCount <= 0) {
         errors.push(
             "Round number must be more than 0"

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import type { TournamentSettings } from "../../features/tournament/models/TournamentSettings";
-import { setupTournament } from "../../features/tournament/services/tournament/setupTournament";
+import type { TournamentSettings } from "../../tournament/models/TournamentSettings";
+import { setupTournament } from "../../tournament/services/tournament/setupTournament";
 
 const playersAlias = ["p1", "p2", "p3", "p4", "p5", "p6"];
 const settings: TournamentSettings = {
@@ -8,7 +8,6 @@ const settings: TournamentSettings = {
     scoringSystem: "position_based",
     tablesCount: 2,
     playersPerTable: 3,
-    roundsMode: "automatic",
     roundsCount: 10,
 };
 const tournamentName = "Torneo pitero";

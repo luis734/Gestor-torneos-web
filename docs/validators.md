@@ -33,7 +33,6 @@ Valida:
 
 * tournamentType requerido
 * scoringSystem requerido
-* roundsMode requerido
 * roundsCount válido
 * tablesCount válido
 * playersPerTable válido

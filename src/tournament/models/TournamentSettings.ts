@@ -1,4 +1,3 @@
-import type { RoundsMode } from "../types/RoundsMode";
 import type { ScoringSystem } from "../types/ScoringSystem";
 import type { TournamentType } from "../types/TournamentType";
 
@@ -7,6 +6,5 @@ export interface TournamentSettings {
     scoringSystem: ScoringSystem;
     tablesCount?: number;
     playersPerTable?: number;
-    roundsMode: RoundsMode;
     roundsCount?: number;
 };

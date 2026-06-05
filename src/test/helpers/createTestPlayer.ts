@@ -1,4 +1,4 @@
-import type { Player } from "../../features/tournament/models/Player";
+import type { Player } from "../../tournament/models/Player";
 
 export function createTestPlayer(
     overrides: Partial<Player> = {}

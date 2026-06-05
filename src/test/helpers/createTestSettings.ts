@@ -1,9 +1,8 @@
-import type { TournamentSettings } from "../../features/tournament/models/TournamentSettings";
+import type { TournamentSettings } from "../../tournament/models/TournamentSettings";
 
 export function createTestSettings(): TournamentSettings {
     return {
         tournamentType: "round_robin",
         scoringSystem: "position_based",
-        roundsMode: "automatic",
     }
 }
