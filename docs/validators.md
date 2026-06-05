@@ -1,6 +1,18 @@
-# Validators actuales
+# Validadores
+
+Los validadores encapsulan las reglas de negocio para verificar que los datos sean correctos antes de ejecutar operaciones.
+
+Todos viven en `src/domain/validators/` y retornan un `ValidationResult`:
+
+```typescript
+{ isValid: boolean; errors: string[] }
+```
+
+---
 
 ## validatePlayerAlias
+
+Ubicación: `src/domain/validators/player/validatePlayerAlias.ts`
 
 Valida:
 
@@ -10,11 +22,13 @@ Valida:
 
 Input:
 
-* alias: string
+* `alias: string`
 
 ---
 
 ## validateTournamentName
+
+Ubicación: `src/domain/validators/tournament/validateTournamentName.ts`
 
 Valida:
 
@@ -23,27 +37,31 @@ Valida:
 
 Input:
 
-* name: string
+* `name: string`
 
 ---
 
 ## validateTournamentSettings
 
+Ubicación: `src/domain/validators/tournament/validateTournamentSettings.ts`
+
 Valida:
 
-* tournamentType requerido
-* scoringSystem requerido
-* roundsCount válido
-* tablesCount válido
-* playersPerTable válido
+* `tournamentType` requerido
+* `scoringSystem` requerido
+* `roundsCount` válido (si está definido)
+* `tablesCount` válido (si está definido)
+* `playersPerTable` válido (si está definido)
 
 Input:
 
-* settings: TournamentSettings
+* `settings: TournamentSettings`
 
 ---
 
 ## validateTablePlayers
+
+Ubicación: `src/domain/validators/table/validateTablePlayers.ts`
 
 Valida:
 
@@ -54,12 +72,14 @@ Valida:
 
 Input:
 
-* playerIds: string[]
-* playersPerTable: number
+* `playerIds: string[]`
+* `playersPerTable: number`
 
 ---
 
 ## validateTableResults
+
+Ubicación: `src/domain/validators/table/validateTableResults.ts`
 
 Valida:
 
@@ -73,12 +93,14 @@ Valida:
 
 Input:
 
-* results: TableResult[]
-* playerIds: string[]
+* `results: TableResult[]`
+* `playerIds: string[]`
 
 ---
 
 ## validateTournamentPlayers
+
+Ubicación: `src/domain/validators/tournament/validateTournamentPlayers.ts`
 
 Valida:
 
@@ -90,21 +112,23 @@ Valida:
 
 Input:
 
-* players: Player[]
-* playersPerTable: number
+* `players: Player[]`
+* `playersPerTable: number`
 
 ---
 
 ## validateRoundTables
 
+Ubicación: `src/domain/validators/rounds/validateRoundTables.ts`
+
 Valida:
 
 * ronda vacía
-* reutiliza validateTablePlayers
+* reutiliza `validateTablePlayers`
 * jugadores repetidos entre mesas
 * mesas duplicadas
 
 Input:
 
-* tables: Table[]
-* playersPerTable: number
+* `tables: Table[]`
+* `playersPerTable: number`

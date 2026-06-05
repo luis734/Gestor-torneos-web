@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { calculateStandings } from "../../features/tournament/services/standings/calculateStandings";
-import type { Round } from "../../features/tournament/models/Round";
-import { createRound } from "../../features/tournament/factories/createRound";
-import { createTable } from "../../features/tournament//factories/createTable";
+import type { Round } from "../../domain/models/Round";
+import { calculateStandings } from "../../domain/services/standings/calculateStandings";
+import { createRound } from "../../domain/factories/createRound";
+import { createTable } from "../../domain/factories/createTable";
 
 describe("calculateStandings", () => {
     it ("Returns empty standings when there are no rounds", () => {

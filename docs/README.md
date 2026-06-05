@@ -2,7 +2,7 @@
 
 Sistema para administrar torneos con soporte para:
 
-- múltiples tipos de torneo (PROXIMAMENTE)
+- múltiples tipos de torneo (en progreso)
 - generación de rondas
 - gestión de mesas
 - registro de resultados
@@ -19,15 +19,17 @@ El enfoque principal del proyecto es:
 - simplicidad
 - mantenimiento fácil
 - modelos claros
-- lógica desacoplada
+- lógica desacoplada de la UI
 
 ---
 
 # Stack
 
-- React
+- React 19
 - TypeScript
-- Arquitectura modular
+- Vite
+- Vitest
+- Arquitectura por capas (`domain` + `features`)
 
 ---
 
@@ -35,38 +37,64 @@ El enfoque principal del proyecto es:
 
 ```text
 src/
-├── feature/
-│   └── tournament/
-│       ├── models/
-│       ├── types/
-│       ├── factories/
-│       ├── services/
-│       ├── validators/
-│       ├── hooks/
-│       ├── components/
-│       ├── utils/
-│       ├── store/
-│       └── pages/
-│
-├── shared/
-│   ├── components/
-│   ├── hooks/
-│   ├── utils/
+├── domain/                    # Lógica de negocio pura
+│   ├── factories/
+│   ├── models/
+│   ├── services/
+│   │   ├── rounds/
+│   │   ├── scheduler/
+│   │   ├── standings/
+│   │   └── tournament/
 │   ├── types/
-│   └── constants/
+│   │   └── inputs/
+│   ├── utils/
+│   └── validators/
+│       ├── player/
+│       ├── rounds/
+│       ├── shared/
+│       ├── table/
+│       └── tournament/
 │
-├── app/
-│   ├── router/
-│   ├── providers/
-│   └── layouts/
+├── features/                  # Casos de uso de UI
+│   └── create-tournament/
+│       └── types/
 │
-├── main.tsx
-└── vite-env.d.ts
+├── store/
+│   └── tournamentStore.ts
+│
+├── test/
+│   ├── helpers/
+│   ├── services/
+│   └── validators/
+│
+├── assets/
+├── App.tsx
+└── main.tsx
+
 docs/
 ├── README.md
 ├── architecture.md
-├── validators.md
 ├── models.md
-├── flows.md
-└── setup.md
+└── validators.md
 ```
+
+---
+
+# Documentación
+
+| Archivo | Contenido |
+|---------|-----------|
+| [architecture.md](./architecture.md) | Capas, responsabilidades y flujo de datos |
+| [models.md](./models.md) | Entidades del dominio y sus relaciones |
+| [validators.md](./validators.md) | Validadores disponibles y sus reglas |
+
+---
+
+# Convenciones de nombres
+
+- **`domain/`**: código sin dependencias de React. Contiene toda la lógica reutilizable del torneo.
+- **`features/`**: módulos de UI organizados por caso de uso (ej. `create-tournament`).
+- **`store/`**: estado global de la aplicación.
+- **`test/`**: pruebas unitarias del dominio, organizadas en paralelo a `domain/services` y `domain/validators`.
+
+Los archivos dentro de `domain/` usan nombres en inglés y convención camelCase para funciones (`calculateStandings`, `validatePlayerAlias`).

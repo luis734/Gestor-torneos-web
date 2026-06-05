@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import type { TournamentSettings } from "../../tournament/models/TournamentSettings";
-import { validateTournamentSettings } from "../../tournament/validators/tournament/validateTournamentSettings";
+import type { TournamentSettings } from "../../domain/models/TournamentSettings";
+import { validateTournamentSettings } from "../../domain/validators/tournament/validateTournamentSettings";
 
 function createTestSettings(): TournamentSettings {
     return {

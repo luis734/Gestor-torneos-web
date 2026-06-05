@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { validateRoundTables } from "../../features/tournament/validators/rounds/validateRoundTables";
-import { createTable } from "../../features/tournament/factories/createTable";
-import type { Table } from "../../features/tournament/models/Table";
+import { validateRoundTables } from "../../domain/validators/rounds/validateRoundTables";
+import { createTable } from "../../domain/factories/createTable";
+import type { Table } from "../../domain/models/Table";
 
 const table1 = ["p1", "p2"];
 const table2 = ["p3", "p4"];

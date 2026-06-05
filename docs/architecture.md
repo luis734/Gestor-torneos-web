@@ -1,6 +1,6 @@
 # Arquitectura
 
-El proyecto utiliza una arquitectura modular orientada por features.
+El proyecto utiliza una arquitectura modular orientada por capas.
 
 El objetivo es mantener:
 
@@ -15,28 +15,74 @@ El objetivo es mantener:
 
 ```text
 src/
-├── app/
-├── features/
-└── shared/
+├── domain/       # Lógica de negocio (sin React)
+├── features/     # Módulos de UI por caso de uso
+├── store/        # Estado global
+└── test/         # Pruebas unitarias del dominio
 ```
 
 ---
 
-# Organización por Features
+# Capa `domain/`
 
-Cada feature contiene todo lo necesario para funcionar de forma independiente.
+El dominio contiene todo lo necesario para funcionar de forma independiente de la interfaz.
 
 ```text
-feature/
-├── models/
-├── types/
-├── factories/
-├── services/
-├── validators/
-├── store/
-├── hooks/
-├── components/
-└── utils/
+domain/
+├── factories/        # Construcción de entidades
+├── models/           # Entidades del sistema
+├── services/         # Lógica de negocio
+│   ├── rounds/       # Generación y gestión de rondas
+│   ├── scheduler/    # Emparejamiento y calendario
+│   ├── standings/    # Cálculo de puntuaciones
+│   └── tournament/   # Ciclo de vida del torneo
+├── types/            # Tipos, estados y contratos
+│   └── inputs/       # DTOs de creación de entidades
+├── utils/            # Utilidades puras (IDs, timestamps)
+└── validators/       # Reglas de validación del dominio
+    ├── player/
+    ├── rounds/
+    ├── shared/
+    ├── table/
+    └── tournament/
+```
+
+---
+
+# Capa `features/`
+
+Cada feature agrupa la UI y los tipos específicos de un caso de uso.
+
+```text
+features/
+└── create-tournament/
+    └── types/        # Tipos del formulario de creación
+```
+
+Las features consumen servicios y validadores de `domain/`, pero no contienen lógica de negocio.
+
+---
+
+# Capa `store/`
+
+Estado global de la aplicación. Actualmente en construcción.
+
+```text
+store/
+└── tournamentStore.ts
+```
+
+---
+
+# Capa `test/`
+
+Pruebas unitarias organizadas en paralelo al dominio.
+
+```text
+test/
+├── helpers/          # Datos de prueba reutilizables
+├── services/         # Tests de domain/services/
+└── validators/       # Tests de domain/validators/
 ```
 
 ---
@@ -47,58 +93,77 @@ feature/
 
 Representa entidades y estructuras del dominio.
 
+Ubicación: `src/domain/models/`
+
 ## types/
 
 Tipos auxiliares, estados y contratos internos.
 
+Ubicación: `src/domain/types/`
+
 ## factories/
 
-Creación e inicialización de entidades, los factories son funciones puras encargadas únicamente de construir entidades válidas del dominio. No contienen lógica de negocio ni persistencia.
+Creación e inicialización de entidades. Son funciones puras encargadas únicamente de construir entidades válidas del dominio. No contienen lógica de negocio ni persistencia.
+
+Ubicación: `src/domain/factories/`
 
 ## services/
 
 Lógica principal del dominio.
 
+Ubicación: `src/domain/services/`
+
+| Subcarpeta | Responsabilidad |
+|------------|-----------------|
+| `rounds/` | Generación de rondas, registro de resultados, actualización de estado |
+| `scheduler/` | Emparejamiento de jugadores y generación de calendario |
+| `standings/` | Cálculo de puntuaciones y clasificación |
+| `tournament/` | Configuración, avance de rondas y estado del torneo |
+
 ## validators/
 
 Reglas y validaciones del dominio.
 
+Ubicación: `src/domain/validators/`
+
 ## store/
 
-Estado global de la feature
+Estado global de la aplicación.
 
-## hooks
+Ubicación: `src/store/`
 
-Lógica reutilizable basada en React.
+## features/
 
-## components/
+Renderizado e interacción UI organizados por caso de uso.
 
-Renderizado e interacción UI.
+Ubicación: `src/features/`
 
 ## utils/
 
 Funciones auxiliares puras.
+
+Ubicación: `src/domain/utils/`
 
 ---
 
 # Flujo general
 
 ```text
-UI
+UI (features/)
  ↓
-hooks
+store/
  ↓
-store
+domain/services/
  ↓
-services
- ↓
-models
+domain/models/
 ```
 
-La lógica de negocio debe permanecer fuera de los componentes.
+La lógica de negocio debe permanecer en `domain/` y no vivir en componentes React.
+
+Los validadores se invocan desde servicios o desde la UI antes de ejecutar operaciones.
 
 ---
 
 # Persistencia
 
-Actualmente la persistencia se realiza mediante Local Storage, la arquitecutra está preparada para migrar posteriormente a persistencia remota.
+Actualmente el proyecto no tiene persistencia implementada. El store global (`tournamentStore`) está preparado como punto de entrada para el estado, con la intención de migrar posteriormente a Local Storage o a una API remota.

@@ -5,7 +5,7 @@ Sistema de gestión de torneos desarrollado con React + TypeScript.
 > [!WARNING]
 > Proyecto actualmente en construcción.
 
-Este proyecto nació principalmente como una forma de aprender React, TypeScript y arquitectura frontend/backend orientada a dominio, por lo que probablemente existan decisiones mejorables, refactors pendientes y funcionalidades incompletas.
+Este proyecto nació principalmente como una forma de aprender React, TypeScript y arquitectura frontend orientada a dominio, por lo que probablemente existan decisiones mejorables, refactors pendientes y funcionalidades incompletas.
 
 Aun así, el objetivo principal es construir una base sólida, extensible y mantenible para soportar distintos tipos de torneos y sistemas de puntuación en el futuro.
 
@@ -34,12 +34,10 @@ El sistema busca soportar:
 
 El enfoque principal es separar claramente:
 
-* Modelos
-* Servicios
-* Validadores
-* Factories
-* Tipos
-* Lógica de negocio
+* **Dominio** (`domain/`): modelos, servicios, validadores, factories y tipos
+* **Features** (`features/`): módulos de UI acoplados a casos de uso concretos
+* **Store** (`store/`): estado global de la aplicación
+* **Tests** (`test/`): pruebas unitarias del dominio
 
 La idea es evitar mezclar lógica compleja dentro de componentes React y mantener el dominio del torneo desacoplado de la UI.
 
@@ -67,23 +65,58 @@ La idea es evitar mezclar lógica compleja dentro de componentes React y mantene
 
 ```text
 src/
-└── features/
-    └── tournament/
-        ├── factories/
-        ├── models/
-        ├── services/
-        ├── types/
-        ├── utils/
-        └── validators/
+├── domain/                    # Lógica de negocio (independiente de React)
+│   ├── factories/
+│   ├── models/
+│   ├── services/
+│   │   ├── rounds/
+│   │   ├── scheduler/
+│   │   ├── standings/
+│   │   └── tournament/
+│   ├── types/
+│   │   └── inputs/
+│   ├── utils/
+│   └── validators/
+│       ├── player/
+│       ├── rounds/
+│       ├── shared/
+│       ├── table/
+│       └── tournament/
+│
+├── features/                  # Módulos de UI por caso de uso
+│   └── create-tournament/
+│       └── types/
+│
+├── store/                     # Estado global (en construcción)
+│   └── tournamentStore.ts
+│
+├── test/                      # Pruebas unitarias
+│   ├── helpers/
+│   ├── services/
+│   └── validators/
+│
+├── assets/
+├── App.tsx
+└── main.tsx
 ```
+
+---
+
 # 🧪 Testing
 
-Actualmente se utilizan pruebas unitarias con Vitest.
+Las pruebas unitarias viven en `src/test/` y cubren servicios y validadores del dominio.
+
+```text
+src/test/
+├── helpers/       # Factories de datos para tests
+├── services/      # Tests de servicios (standings, rondas, torneo...)
+└── validators/    # Tests de validadores
+```
 
 Ejemplo:
 
 ```text
-calculateStandings.test.ts
+src/test/services/calculateStandings.test.ts
 ```
 
 El objetivo es validar:
@@ -140,14 +173,14 @@ npm run lint
 
 # 📚 Documentación adicional
 
-El proyecto ya incluye documentación interna:
+El proyecto incluye documentación interna en `docs/`:
 
 ```text
 docs/
+├── README.md
 ├── architecture.md
 ├── models.md
-├── validators.md
-└── README.md
+└── validators.md
 ```
 
 ---
@@ -158,7 +191,9 @@ Actualmente el proyecto:
 
 * NO utiliza base de datos
 * NO tiene backend real
-* se enfoca principalmente en la lógica del dominio
+* se enfoca principalmente en la lógica del dominio (`src/domain/`)
+* tiene una feature de UI inicial (`create-tournament`)
+* el store global (`tournamentStore`) aún no está implementado
 * está pensado para evolucionar gradualmente
 
 La prioridad inicial fue aprender:
@@ -177,14 +212,15 @@ antes de intentar construir un sistema completo de producción.
 
 ## Arquitectura
 
-* [ ] Mejorar separación de capas
-* [ ] Introducir manejo de estado global
-* [ ] Modularizar lógica de torneo
+* [X] Mejorar separación de capas
+* [X] Extraer lógica de negocio a `domain/`
+* [ ] Implementar manejo de estado global (`store/`)
+* [ ] Completar features de UI
 
 ## Torneos
 
+* [X] Round Robin
 * [ ] Swiss
-* [ ] Round Robin
 * [ ] Eliminación directa
 * [ ] Multiplayer formats
 

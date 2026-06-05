@@ -1,5 +1,5 @@
-import type { ScoringSystem } from "../../../tournament/types/ScoringSystem";
-import type { TournamentType } from "../../../tournament/types/TournamentType";
+import type { ScoringSystem } from "../../../domain/types/ScoringSystem";
+import type { TournamentType } from "../../../domain/types/TournamentType";
 
 export type CreateTournamentFormData = {
     tournamentName: string;
