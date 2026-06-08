@@ -1,0 +1,39 @@
+@theme {
+    /* COLORS */
+
+    /* Theme Foundation */
+    --color-background: var(--background);
+    --color-surface: var(--surface);
+    --color-surface-raised: var(--surface-raised);
+
+    /* Brand & Action */
+    --color-brand: var(--brand);
+    --color-brand-hover: var(--brand-hover);
+    
+    /* Text & Borders */
+    --color-text-primary: var(--text-primary);
+    --color-text-secondary: var(--text-secondary);
+    --color-text-disabled: var(--text-disabled);
+    --color-border: var(--border);
+    --color-border-strong: var(--border-strong);
+
+    /* Feedback */
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-danger: var(--danger);
+    --color-info: var(--info);
+    
+    /* Typography */
+    --font-sans: "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+    
+    /* Text Sizes */
+    --text-display: 3.75rem;
+    --text-h1: 2.25rem;
+    --text-h2: 1.5rem;
+    --text-h3: 1.25rem;
+    --text-body-large: 1.125rem;
+    --text-body: 1rem;
+    --text-body-small: 0.875rem;
+    --text-caption: 0.75rem;
+}
