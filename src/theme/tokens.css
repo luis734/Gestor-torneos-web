@@ -1,5 +1,5 @@
 @theme {
-    /* COLORS */
+    /** COLORS */
 
     /* Theme Foundation */
     --color-background: var(--background);
@@ -11,9 +11,9 @@
     --color-brand-hover: var(--brand-hover);
     
     /* Text & Borders */
-    --color-text-primary: var(--text-primary);
-    --color-text-secondary: var(--text-secondary);
-    --color-text-disabled: var(--text-disabled);
+    --color-foreground: var(--foreground);
+    --color-foreground-muted: var(--foreground-muted);
+    --color-foreground-disabled: var(--foreground-disabled);
     --color-border: var(--border);
     --color-border-strong: var(--border-strong);
 
@@ -23,17 +23,19 @@
     --color-danger: var(--danger);
     --color-info: var(--info);
     
+    /** END COLORS */
+
     /* Typography */
     --font-sans: "Inter", sans-serif;
     --font-mono: "JetBrains Mono", monospace;
     
     /* Text Sizes */
-    --text-display: 3.75rem;
-    --text-h1: 2.25rem;
-    --text-h2: 1.5rem;
-    --text-h3: 1.25rem;
-    --text-body-large: 1.125rem;
-    --text-body: 1rem;
-    --text-body-small: 0.875rem;
-    --text-caption: 0.75rem;
+    --text-display: 3.75rem; /* 60px */
+    --text-h1: 2.25rem; /* 36px */
+    --text-h2: 1.5rem; /* 24px */
+    --text-h3: 1.25rem; /* 20px */
+    --text-body-large: 1.125rem; /* 18px */
+    --text-body: 1rem; /* 16px */
+    --text-body-small: 0.875rem; /* 14px */
+    --text-caption: 0.75rem; /* 12px */
 }

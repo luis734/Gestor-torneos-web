@@ -6,9 +6,9 @@
     --brand: #5966f3;
     --brand-hover: #8892f6;
 
-    --text-primary: #f1f1f4;
-    --text-secondary: #ababba;
-    --text-disabled: #73738c;
+    --foreground: #f1f1f4;
+    --foreground-muted: #ababba;
+    --foreground-disabled: #73738c;
     --border: #363649;
     --border-strong: #575775;
 
