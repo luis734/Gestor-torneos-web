@@ -7,7 +7,7 @@ export type variantTypes =
 | "text"
 | "password";
 
-export type InputProps = {
+export type BaseInputProps = {
     id?: string;
     variant?: variantTypes;
     label?: string;
@@ -16,5 +16,5 @@ export type InputProps = {
     disabled?: boolean;
     error?: {hasError: boolean, msg?: string};
     value?: string;
-    onChange?: (value) => void;
+    onChange?: (value:string) => void;
 };

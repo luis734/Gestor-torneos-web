@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input } from "./Input";
+import { BaseInput } from "./BaseInput";
 
 export function InputExample() {
     const [name, setName] = useState("Torneo Pitero 2025-2026");
@@ -7,15 +7,15 @@ export function InputExample() {
 
     return (
         <div className="bg-background p-8 flex flex-col min-h-dvh gap-4">
-            <Input label="Tournament Name" placeholder="e.g. Torneo Pitero"></Input>
+            <BaseInput label="Tournament Name" placeholder="e.g. Torneo Pitero"></BaseInput>
 
-            <Input label="Active State" value={name} onChange={(e) => setName(e.target.value)}></Input>
+            <BaseInput label="Active State" value={name} onChange={setName}></BaseInput>
 
-            <Input label="Number input" value={number} onChange={(e) => setNumber(e.target.value)} variant="number"></Input>
+            <BaseInput label="Number input" value={number} onChange={setNumber} variant="number"></BaseInput>
             
-            <Input label="With Error" error={{hasError: true, msg: "Mensaje de error"}} placeholder="Required field"></Input>
+            <BaseInput label="With Error" error={{hasError: true, msg: "Mensaje de error"}} placeholder="Required field"></BaseInput>
 
-            <Input label="Disabled" placeholder="Cannot edit this" disabled></Input>
+            <BaseInput label="Disabled" placeholder="Cannot edit this" disabled></BaseInput>
         </div>
     );
 }
