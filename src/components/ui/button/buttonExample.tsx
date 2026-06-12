@@ -1,6 +1,6 @@
 import { Button } from ".";
 
-export function DashboardPage() {
+export function ButtonExample() {
     return (
         <div className="bg-background p-8 min-h-dvh">
             <div className="flex flex-col gap-y-[1rem]">
@@ -44,9 +44,9 @@ export function DashboardPage() {
                     </Button>
                 </div>
 
-                <div className="flex gap-[1rem]">
+                <div className="flex gap-[1rem] items-center">
                     <Button onClick={() => console.log("Small")} size="sm">
-                        Small with large texrt
+                        Small
                     </Button>
                     <Button onClick={() => console.log("Medium")}>
                         Medium
