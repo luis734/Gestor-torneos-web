@@ -12,7 +12,6 @@ export type BaseInputProps = {
     variant?: variantTypes;
     label?: string;
     placeholder?: string;
-    icon?: { path: string, position: IconPosition };
     disabled?: boolean;
     error?: {hasError: boolean, msg?: string};
     value?: string;

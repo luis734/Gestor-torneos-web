@@ -16,6 +16,8 @@ export function InputExample() {
             <BaseInput label="With Error" error={{hasError: true, msg: "Mensaje de error"}} placeholder="Required field"></BaseInput>
 
             <BaseInput label="Disabled" placeholder="Cannot edit this" disabled></BaseInput>
+
+            <BaseInput label="Password" placeholder="Hidden Password" variant="password"></BaseInput>
         </div>
     );
 }

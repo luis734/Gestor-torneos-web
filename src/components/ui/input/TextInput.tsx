@@ -11,7 +11,7 @@ export function TextInput({id, placeholder, disabled = false, error = {hasError:
             placeholder={placeholder}
             value={value}
             disabled={disabled}
-            onChange={onChange} // Función de control
+            onChange={(e) => onChange(e.target.value)} // Función de control
         />
     );
 }

@@ -9,6 +9,7 @@
     /* Brand & Action */
     --color-brand: var(--brand);
     --color-brand-hover: var(--brand-hover);
+    --color-brand-accent: var(--brand-accent);
     
     /* Text & Borders */
     --color-foreground: var(--foreground);

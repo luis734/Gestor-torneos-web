@@ -17,11 +17,10 @@ export function NumberInput({id, value, error={hasError:false, msg:""}, disabled
     }
 
     return (
-        <div className="flex gap-2 items-center w-[50px]">
+        <div className="flex gap-2 items-center">
             <Button variant="ghost" size="sm" onClick={decrement}>
                 <MinusIcon className="text-brand w-6 h-6"/>
             </Button>
-       
 
             <input id={id} type="number" className={inputClasses} value={value} onChange={(e) => onChange(e.target.value)}/>
 
