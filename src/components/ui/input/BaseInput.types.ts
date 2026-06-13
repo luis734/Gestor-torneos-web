@@ -5,6 +5,7 @@ export type IconPosition =
 export type variantTypes =
 | "number"
 | "text"
+| "search"
 | "password";
 
 export type BaseInputProps = {
