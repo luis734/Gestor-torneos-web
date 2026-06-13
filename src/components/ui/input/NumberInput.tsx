@@ -1,4 +1,3 @@
-import { Button } from "../button";
 import { defaultStyles, disabledStyle, errorStyles } from "./BaseInput.styles";
 import type { BaseInputProps } from "./BaseInput.types";
 import { MinusIcon, PlusIcon } from "../../../assets/icons";
@@ -17,16 +16,16 @@ export function NumberInput({id, value, error={hasError:false, msg:""}, disabled
     }
 
     return (
-        <div className="flex gap-2 items-center">
-            <Button variant="ghost" size="sm" onClick={decrement}>
+        <div className="flex gap-2">
+            <button className="flex items-center justify-center min-w-10 hover:bg-surface rounded-[4px]" onClick={decrement}>
                 <MinusIcon className="text-brand w-6 h-6"/>
-            </Button>
+            </button>
 
             <input id={id} type="number" className={inputClasses} value={value} onChange={(e) => onChange(e.target.value)}/>
 
-            <Button  variant="ghost" size="sm" onClick={increment}>
+            <button className="flex items-center justify-center min-w-10 hover:bg-surface rounded-[4px]" onClick={increment}>
                 <PlusIcon className="text-brand w-6 h-6"/>
-            </Button>
+            </button>
         </div>
     );
 }

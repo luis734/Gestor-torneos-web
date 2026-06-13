@@ -4,6 +4,7 @@ import { BaseInput } from "./BaseInput";
 export function InputExample() {
     const [name, setName] = useState("Torneo Pitero 2025-2026");
     const [number, setNumber] = useState("42");
+    const [password, setPassword] = useState("Contraseña visible?");
 
     return (
         <div className="bg-background p-8 flex flex-col min-h-dvh gap-4">
@@ -17,7 +18,7 @@ export function InputExample() {
 
             <BaseInput label="Disabled" placeholder="Cannot edit this" disabled></BaseInput>
 
-            <BaseInput label="Password" placeholder="Hidden Password" variant="password"></BaseInput>
+            <BaseInput label="Password" value={password} placeholder="•••••••••" variant="password" onChange={setPassword}></BaseInput>
         </div>
     );
 }
