@@ -1,10 +1,11 @@
 // import { DashboardPage } from './features/dashboard/DashboardPage'
 
-import { InputExample } from "./components/ui/input/inputExample"
+import { BadgeExample } from "./components/ui/badges/badgeExample"
+// import { InputExample } from "./components/ui/input/inputExample"
 
 function App() {
 //   return <DashboardPage/>
-    return <InputExample></InputExample>
+    return <BadgeExample/>
 }
 
 export default App
