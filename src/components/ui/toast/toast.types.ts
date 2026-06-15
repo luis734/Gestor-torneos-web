@@ -66,3 +66,10 @@ export const ToastConfig = {
         delay: 1000
     }
 }
+
+// Props para el Provider
+export type ToastCreateData = {
+    variant: ToastVariants;
+    title?: string;
+    message: string;
+}
