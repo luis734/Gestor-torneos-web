@@ -26,4 +26,5 @@ export { default as StarIcon } from "./Star.svg?react";
 export { default as SunIcon } from "./Sun.svg?react";
 export { default as TrophyIcon } from "./Trophy.svg?react";
 export { default as UsersIcon } from "./Users.svg?react";
+export { default as XIcon } from "./X.svg?react";
 export { default as XCircleIcon } from "./XCircle.svg?react";
