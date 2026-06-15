@@ -26,8 +26,7 @@ export type ToastProps = {
     dismissible?: boolean;
 
     // Comportamiento
-    delay?: number; // Tiempo en milisegundos antes de desaparecer
-    onClose?: (value) => void;
+    onClose?: (value:string) => void;
 }
 
 // Tipo de dato para el container
@@ -42,5 +41,28 @@ export type ToastData = {
 
 export type ToastContainerProps = {
     toastList: ToastData[];
-    toClose: (value) => void;
+    toClose?: (value:string) => void;
+}
+
+export const ToastConfig = {
+    default: {
+        autoClose: true,
+        dismissible: false,
+        delay: 3000
+    },
+    info: {
+        autoClose: true,
+        dismissible: false,
+        delay: 5000
+    },
+    warning: {
+        autoClose: true,
+        dismissible: true,
+        delay: 8000
+    },
+    error: {
+        autoClose: false,
+        dismissible: true,
+        delay: 1000
+    }
 }

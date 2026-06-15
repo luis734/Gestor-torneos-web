@@ -1,19 +1,22 @@
 import { useEffect } from "react";
 import { XIcon } from "../../../assets/icons";
 import { ToastIconStyles, ToastStyles } from "./toast.styles";
-import { ToastIconSet, type ToastProps } from "./toast.types";
+import { ToastIconSet, type ToastProps, ToastConfig } from "./toast.types";
 
-export function Toast({id, variant="default", title, message, delay=5000, dismissible=false, onClose}:ToastProps) {
-    const defaultStyles = "flex gap-[12px] bg-surface flex p-4 border-l-4 rounded-r-[8px] text-body max-w-sm shadow-xl/50";
+export function Toast({id, variant="default", title, message, onClose}:ToastProps) {
+    const defaultStyles = "flex gap-[12px] bg-surface flex p-4 border-l-4 rounded-r-[8px] text-body w-sm shadow-xl/50";
     const toastStyles = ToastStyles[variant];
 
     const Icon = ToastIconSet[variant];
     const iconStyles = `h-5 w-5 ${ToastIconStyles[variant]}`;
+    const config = ToastConfig[variant];
 
     useEffect(() => {
+        if (!config.autoClose) return;
+
         const timer = setTimeout(
             ()=> closeToast()
-        , delay);
+        , config.delay);
 
         return (() => {
             clearTimeout(timer);
@@ -21,7 +24,7 @@ export function Toast({id, variant="default", title, message, delay=5000, dismis
     }, []);
 
     function closeToast() {
-        onClose(id);
+        onClose?.(id);
     }
 
     return (
@@ -39,7 +42,7 @@ export function Toast({id, variant="default", title, message, delay=5000, dismis
             </div>
             
             {
-                dismissible ? 
+                config.dismissible ? 
                 <button onClick={closeToast} className="flex">
                     <XIcon className="text-foreground h-4 w-4"></XIcon>
                 </button>
