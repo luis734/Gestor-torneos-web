@@ -1,24 +1,34 @@
+import { useEffect } from "react";
 import { XIcon } from "../../../assets/icons";
 import { ToastIconStyles, ToastStyles } from "./toast.styles";
 import { ToastIconSet, type ToastProps } from "./toast.types";
 
-export function Toast({variant="default", title, message, delay, dismissible=false, onClose}:ToastProps) {
+export function Toast({id, variant="default", title, message, delay=5000, dismissible=false, onClose}:ToastProps) {
     const defaultStyles = "flex gap-[12px] bg-surface flex p-4 border-l-4 rounded-r-[8px] text-body max-w-sm shadow-xl/50";
     const toastStyles = ToastStyles[variant];
 
     const Icon = ToastIconSet[variant];
     const iconStyles = `h-5 w-5 ${ToastIconStyles[variant]}`;
 
+    useEffect(() => {
+        const timer = setTimeout(
+            ()=> closeToast()
+        , delay);
+
+        return (() => {
+            clearTimeout(timer);
+        });
+    }, []);
+
     function closeToast() {
-        // TODO Funcionalidad para cerrar el toast
-        onClose(true);
+        onClose(id);
     }
 
     return (
         <div className={defaultStyles + " " + toastStyles}>
             <Icon className={iconStyles}/>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col flex-1">
                 {
                     title != undefined ?
                         <span className="font-bold text-foreground text-body-small">{title}</span>
@@ -30,8 +40,8 @@ export function Toast({variant="default", title, message, delay, dismissible=fal
             
             {
                 dismissible ? 
-                <button onClick={closeToast}>
-                    <XIcon className="text-foreground"></XIcon>
+                <button onClick={closeToast} className="flex">
+                    <XIcon className="text-foreground h-4 w-4"></XIcon>
                 </button>
                 :""
             }

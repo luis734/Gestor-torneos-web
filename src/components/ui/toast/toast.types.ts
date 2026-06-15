@@ -18,6 +18,7 @@ export const ToastIconSet: Record<ToastVariants, SvgIcon> = {
 }
 
 export type ToastProps = {
+    id: string,
     // Visuales
     variant?: ToastVariants;
     title?: string;
@@ -27,4 +28,19 @@ export type ToastProps = {
     // Comportamiento
     delay?: number; // Tiempo en milisegundos antes de desaparecer
     onClose?: (value) => void;
+}
+
+// Tipo de dato para el container
+export type ToastData = {
+    id: string;
+    variant: ToastVariants;
+    title?: string;
+    message: string;
+    delay?: number;
+    dismissible?: boolean;
+}
+
+export type ToastContainerProps = {
+    toastList: ToastData[];
+    toClose: (value) => void;
 }
