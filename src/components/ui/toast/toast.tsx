@@ -1,17 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { XIcon } from "../../../assets/icons";
-import { ToastIconStyles, ToastStyles } from "./toast.styles";
+import { baseStyles, hiddenStyles, ToastIconStyles, ToastStyles, visibleStyles } from "./toast.styles";
 import { ToastIconSet, type ToastProps, ToastConfig } from "./toast.types";
 
 export function Toast({id, variant="default", title, message, onClose}:ToastProps) {
-    const defaultStyles = "flex gap-[12px] bg-surface flex p-4 border-l-4 rounded-r-[8px] text-body w-sm shadow-xl/50";
+    const [isVisible, setVisibility] = useState(false);
+
     const toastStyles = ToastStyles[variant];
+    const defaultStyles = baseStyles + " " + toastStyles + " " + (isVisible ? visibleStyles : hiddenStyles);
 
     const Icon = ToastIconSet[variant];
     const iconStyles = `h-5 w-5 ${ToastIconStyles[variant]}`;
     const config = ToastConfig[variant];
 
     useEffect(() => {
+        setVisibility(true); // Tener cuidado con esto ya que se puede ciclar por el orden de actualizaciones (Antipatron ❌)
         if (!config.autoClose) return;
 
         const timer = setTimeout(
@@ -24,11 +27,14 @@ export function Toast({id, variant="default", title, message, onClose}:ToastProp
     }, []);
 
     function closeToast() {
-        onClose?.(id);
+        setVisibility(false);
+        setTimeout(() => {
+            onClose?.(id);
+        }, 300);
     }
 
     return (
-        <div className={defaultStyles + " " + toastStyles}>
+        <div className={defaultStyles}>
             <Icon className={iconStyles}/>
 
             <div className="flex flex-col flex-1">

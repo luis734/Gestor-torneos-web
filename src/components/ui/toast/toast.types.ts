@@ -48,12 +48,12 @@ export const ToastConfig = {
     default: {
         autoClose: true,
         dismissible: false,
-        delay: 3000
+        delay: 4000
     },
     info: {
         autoClose: true,
         dismissible: false,
-        delay: 5000
+        delay: 4000
     },
     warning: {
         autoClose: true,
