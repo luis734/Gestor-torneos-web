@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { XIcon } from "../../../assets/icons";
-import { baseStyles, hiddenStyles, ToastIconStyles, ToastStyles, visibleStyles } from "./toast.styles";
-import { ToastIconSet, type ToastProps, ToastConfig } from "./toast.types";
+import { baseStyles, hiddenStyles, ToastIconStyles, ToastStyles, visibleStyles } from "./Toast.styles";
+import { ToastIconSet, type ToastProps, ToastConfig } from "./Toast.types";
 
 export function Toast({id, variant="default", title, message, onClose}:ToastProps) {
     const [isVisible, setVisibility] = useState(false);

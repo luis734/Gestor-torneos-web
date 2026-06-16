@@ -1,5 +1,5 @@
 import { Button } from "../button";
-import type { ToastCreateData, ToastVariants } from "./toast.types";
+import type { ToastCreateData, ToastVariants } from "./Toast.types";
 import { useState } from "react";
 import { useToast } from "./useToast";
 

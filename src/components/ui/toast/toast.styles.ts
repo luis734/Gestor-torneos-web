@@ -1,4 +1,4 @@
-import type { ToastVariants } from "./toast.types"
+import type { ToastVariants } from "./Toast.types"
 
 export const ToastStyles: Record<ToastVariants, string> = {
     default: "border-success",

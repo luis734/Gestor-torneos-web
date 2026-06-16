@@ -1,5 +1,5 @@
-import { Toast } from "./toast";
-import type { ToastContainerProps } from "./toast.types";
+import { Toast } from "./Toast";
+import type { ToastContainerProps } from "./Toast.types";
 
 export function ToastContainer({toastList, toClose}:ToastContainerProps) {
     return (

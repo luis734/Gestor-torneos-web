@@ -1,7 +1,7 @@
 import { useState } from "react";
-import type { ToastCreateData, ToastData } from "./toast.types";
-import { ToastContext } from "./toastContext";
-import { ToastContainer } from "./toastContainer";
+import type { ToastCreateData, ToastData } from "./Toast.types";
+import { ToastContext } from "./ToastContext";
+import { ToastContainer } from "./ToastContainer";
 
 type ToastProviderProps = {
     children: React.ReactNode;

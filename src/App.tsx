@@ -1,10 +1,10 @@
 // import { DashboardPage } from './features/dashboard/DashboardPage'
+import { ModalExample } from "./components/ui/modal/modalExample"
 
-import { ToastExample } from "./components/ui/toast/toastExample"
 
 function App() {
 //   return <DashboardPage/>
-    return <ToastExample/>
+    return <ModalExample />
 }
 
 export default App
