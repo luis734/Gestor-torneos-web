@@ -2,11 +2,11 @@ export const BadgeVariant = {
     default: {
         text: "text-foreground-muted",// Color de texto
         background: {
-            solid: "bg-border",
-            soft: "bg-border/50"
+            solid: "bg-surface-raised",
+            soft: "bg-surface-raised/50"
         },// Color de fondo
         border: "border-border-strong/50",// Color de borde
-        dot: "bg-foreground-muted",// Color de punto/texto
+        dot: "bg-surface-raised",// Color de punto/texto
     },
     progress: {
         text: "text-warning",// Color de texto
