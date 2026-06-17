@@ -1,14 +1,14 @@
 // import { DashboardPage } from './features/dashboard/DashboardPage'
-import { TableExample } from "./components/ui/table/tableExample"
+import { TournamentHomePage } from "./features/tournament-home-page"
+import { AppLayout } from "./layouts/app-layout"
 
 
 function App() {
 //   return <DashboardPage/>
     return (
-        <div className="bg-background p-8 min-h-dvh">
-            <TableExample />
-            {/* <BadgeExample /> */}
-        </div>
+        <AppLayout headerTitle="TablePoints">
+            <TournamentHomePage></TournamentHomePage>
+        </AppLayout>
     )
 }
 

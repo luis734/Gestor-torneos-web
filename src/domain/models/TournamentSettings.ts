@@ -5,6 +5,6 @@ export interface TournamentSettings {
     tournamentType: TournamentType;
     scoringSystem: ScoringSystem;
     tablesCount?: number;
-    playersPerTable?: number;
+    playersPerTable: number;
     roundsCount?: number;
 };
