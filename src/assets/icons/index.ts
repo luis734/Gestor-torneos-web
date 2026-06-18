@@ -24,6 +24,7 @@ export { default as SearchIcon } from "./Search.svg?react";
 export { default as SettingsIcon } from "./Settings.svg?react";
 export { default as StarIcon } from "./Star.svg?react";
 export { default as SunIcon } from "./Sun.svg?react";
+export { default as TrashIcon } from "./Trash2.svg?react";
 export { default as TrophyIcon } from "./Trophy.svg?react";
 export { default as UsersIcon } from "./Users.svg?react";
 export { default as XIcon } from "./X.svg?react";

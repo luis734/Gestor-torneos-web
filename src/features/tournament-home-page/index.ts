@@ -1,1 +1,1 @@
-export { TournamentHomePage } from "./pages/TournamentHomePage"
+export { TournamentHomePage } from "./pages/tournamentHomePage/TournamentHomePage"

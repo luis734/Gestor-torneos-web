@@ -2,7 +2,7 @@ import { CheckIcon, CircleIcon } from "../../../assets/icons";
 import { BadgeAppearance, BadgeVariant } from "./Badge.styles";
 import type { BadgeProps } from "./Badge.types";
 
-export function Badge({children, variant, appearance}:BadgeProps) {
+export function Badge({children, variant="default", appearance="pill"}:BadgeProps) {
     const variantStyles = BadgeVariant[variant];
     const appearanceStyles = BadgeAppearance[appearance];
 

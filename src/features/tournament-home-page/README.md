@@ -8,7 +8,7 @@ Permitir al usuario crear un nuevo torneo o continuar uno previamente guardado.
 
 ## 💭 Requisitos funcionales
 
-### 🚧 RF-01 - Mostrar torneos guardados
+### ✅ RF-01 - Mostrar torneos guardados
 
 Cuando existan torneos almacenados, el sistema debe mostrar una lista de torneos disponibles.
 
