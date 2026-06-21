@@ -1,13 +1,14 @@
+import { Outlet } from "react-router-dom";
 import { PageHeader } from "../../components/ui/pageHeader";
 import { LayoutStyles } from "./AppLayout.styles";
-import type { LayoutProps } from "./AppLayout.type";
 
-export function AppLayout({headerTitle, children}:LayoutProps) {
+export function AppLayout() {
     return (
         <div className={LayoutStyles.container}>
-            <PageHeader pageTitle={headerTitle}/>
+            <PageHeader pageTitle="TablePoints"/>
             <section id="content" className="w-full max-w-xl p-4 flex-1">
-                { children }
+                <Outlet />
+                {/* { children } */}
             </section>
         </div>
     );

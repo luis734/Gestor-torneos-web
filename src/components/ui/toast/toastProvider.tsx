@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { ToastCreateData, ToastData } from "./Toast.types";
 import { ToastContext } from "./ToastContext";
 import { ToastContainer } from "./ToastContainer";
+import { createId } from "../../../domain/utils/createId";
 
 type ToastProviderProps = {
     children: React.ReactNode;
@@ -11,7 +12,7 @@ export function ToastProvider({children}:ToastProviderProps) {
     const [toasts, setToasts] = useState<ToastData[]>([]);
 
     function addToast(data: ToastCreateData) {
-        const newId = crypto.randomUUID();
+        const newId = createId();
 
         const newToast: ToastData = {
             id: newId,

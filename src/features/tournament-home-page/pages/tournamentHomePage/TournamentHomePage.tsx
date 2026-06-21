@@ -6,30 +6,34 @@ import { TournamentCard } from "../../components/tournamentCards";
 import type { CardProp } from "../../components/tournamentCards/TournamentCard.type";
 import { getLastSync } from "./TournamentHomePage.types";
 import { TournamentStyles } from "./TournamentHomePage.style";
+import { createId } from "../../../../domain/utils/createId";
 
 export function TournamentHomePage() {
     // TODO Cambiar la lista por elementos guardados
     const tournaments: CardProp[] = [
         {
-          status: "progress",
-          tournamentName: "Copa Mundial de Fútbol 2026",
-          playersCount: 832,
-          roundsCount: 7,
-          lastSync: "2026-06-17T14:30:00Z"
+            id: createId(),
+            status: "progress",
+            tournamentName: "Copa Mundial de Fútbol 2026",
+            playersCount: 832,
+            roundsCount: 7,
+            lastSync: "2026-06-17T14:30:00Z"
         },
         {
-          status: "pending",
-          tournamentName: "Torneo de Ajedrez Regional",
-          playersCount: 64,
-          roundsCount: 6,
-          lastSync: "2026-06-16T09:15:00Z"
+            id: createId(),
+            status: "pending",
+            tournamentName: "Torneo de Ajedrez Regional",
+            playersCount: 64,
+            roundsCount: 6,
+            lastSync: "2026-06-16T09:15:00Z"
         },
         {
-          status: "completed",
-          tournamentName: "Liga de Verano - Padel",
-          playersCount: 128,
-          roundsCount: 5,
-          lastSync: "2026-06-10T18:45:00Z"
+            id: createId(),
+            status: "completed",
+            tournamentName: "Liga de Verano - Padel",
+            playersCount: 128,
+            roundsCount: 5,
+            lastSync: "2026-06-10T18:45:00Z"
         }
     ];
 
@@ -57,7 +61,14 @@ export function TournamentHomePage() {
 
                         {
                             tournaments.map((tournament) =>
-                                <TournamentCard status={tournament.status} tournamentName={tournament.tournamentName} playersCount={tournament.playersCount} roundsCount={tournament.roundsCount} lastSync={getLastSync(tournament.lastSync)}></TournamentCard>
+                                <TournamentCard
+                                    key={tournament.id}
+                                    status={tournament.status}
+                                    tournamentName={tournament.tournamentName}
+                                    playersCount={tournament.playersCount}
+                                    roundsCount={tournament.roundsCount}
+                                    lastSync={getLastSync(tournament.lastSync)}>
+                                </TournamentCard>
                             )
                         }
                     </section>

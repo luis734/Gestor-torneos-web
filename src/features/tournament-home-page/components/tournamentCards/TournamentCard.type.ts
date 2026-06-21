@@ -1,6 +1,7 @@
 import type { BadgeVariant } from "../../../../components/ui/badge/Badge.types"
 
 export type CardProp = {
+    id?: string;
     status: BadgeVariant;
     tournamentName: string;
     playersCount: number;

@@ -34,12 +34,14 @@ export function PageHeader({pageTitle}:PageProps) {
             className={`${ PageStyles.container } ${PageStyles.transitions} ${ isSticky ? PageStyles.isSticky : PageStyles.noSticky }
             `}
           >
-            <div className={`${PageStyles.icon} ${isSticky ? "h-5 w-5" : "h-7 w-7"}`}>
-                <TrophyIcon className={`${PageStyles.transitions} ${isSticky ? "h-3 w-3" : "h-4 w-4"}`}/>
+            <div className="flex w-xl gap-3">
+                <div className={`${PageStyles.icon} ${isSticky ? "h-5 w-5" : "h-7 w-7"}`}>
+                    <TrophyIcon className={`${PageStyles.transitions} ${isSticky ? "h-3 w-3" : "h-4 w-4"}`}/>
+                </div>
+                <span className={PageStyles.transitions}>
+                    {pageTitle}
+                </span>
             </div>
-            <span className={PageStyles.transitions}>
-                {pageTitle}
-            </span>
           </header>
         </>
       );

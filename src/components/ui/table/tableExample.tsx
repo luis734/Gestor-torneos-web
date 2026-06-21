@@ -1,3 +1,4 @@
+import { createId } from "../../../domain/utils/createId";
 import { PositionBadge } from "../badge/PositionBadge";
 import { Table } from "./Table";
 import type { TableColumn } from "./Table.types";
@@ -36,37 +37,37 @@ export function TableExample() {
 
     const rows: PlayerRow[] = [
         {
-            id: crypto.randomUUID(),
+            id: createId(),
             name: "Ibra",
             points: "5",
             position: 1
         },
         {
-            id: crypto.randomUUID(),
+            id: createId(),
             name: "Isul",
             points: "9",
             position: 2
         },
         {
-            id: crypto.randomUUID(),
+            id: createId(),
             name: "Angel",
             points: "10",
             position: 3
         },
         {
-            id: crypto.randomUUID(),
+            id: createId(),
             name: "Hector",
             points: "20",
             position: 4
         },
         {
-            id: crypto.randomUUID(),
+            id: createId(),
             name: "Hector",
             points: "21",
             position: 5
         },
         {
-            id: crypto.randomUUID(),
+            id: createId(),
             name: "Exio",
             points: "25",
             position: 6
