@@ -1,4 +1,4 @@
-import type { Player } from "../../domain/models/Player";
+import type { Player } from "../../../domain/models/Player";
 
 export function createTestPlayer(
     overrides: Partial<Player> = {}

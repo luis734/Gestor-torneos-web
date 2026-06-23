@@ -1,4 +1,4 @@
-import type { Tournament } from "../../domain/models/Tournament";
+import type { Tournament } from "../../../domain/models/Tournament";
 import { createTestSettings } from "./createTestSettings";
 
 export function createTestTournament(

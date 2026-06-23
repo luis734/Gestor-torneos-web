@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { createRound } from "../../domain/factories/createRound";
-import { createTable } from "../../domain/factories/createTable";
-import { updateRoundStatus } from "../../domain/services/rounds/updateRoundStatus";
+import { createRound } from "../../../domain/factories/createRound";
+import { createTable } from "../../../domain/factories/createTable";
+import { updateRoundStatus } from "../../../domain/services/rounds/updateRoundStatus";
 
 function createTestRound() {
     return createRound({

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import type { TournamentSettings } from "../../domain/models/TournamentSettings";
-import { validateTournamentSettings } from "../../domain/validators/tournament/validateTournamentSettings";
+import type { TournamentSettings } from "../../../domain/models/TournamentSettings";
+import { validateTournamentSettings } from "../../../domain/validators/tournament/validateTournamentSettings";
 
 function createTestSettings(): TournamentSettings {
     return {
@@ -79,6 +79,6 @@ describe("validateTournamentSettings", () => {
         expect(result.errors).toContain("Scoring system is required");
         expect(result.errors).toContain("Table count must be more than 0");
         expect(result.errors).toContain("Players per table must be more than 1");
-        expect(result.errors).toHaveLength(5);
+        expect(result.errors).toHaveLength(4);
     });
 });

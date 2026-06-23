@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { createTestTournament } from "../helpers/createTestTournamen";
 import { createTestRound } from "../helpers/createTestRound";
-import { advanceCurrentRound } from "../../domain/services/tournament/advanceCurrentRound";
+import { advanceCurrentRound } from "../../../domain/services/tournament/advanceCurrentRound";
 
 describe("advanceCurrentRound", () => {
     it("should keep round 1 when all rounds are pending", () => {

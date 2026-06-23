@@ -30,9 +30,6 @@ export function TournamentHomePage() {
         console.log("Result: ",result);
     }
 
-    // localStorage.setItem("tournament:v1", JSON.stringify({version: 1, tournaments:[{id: "123", status: "progress", tournamentName: "Torneo Pitero", playersCount: 6, roundsCount: 10, lastSync: "2026-06-17T14:30:00Z"}], lastOpenedTournamentId: null}))
-    
-
     return (
         <div className={TournamentStyles.mainContainer}>
             {

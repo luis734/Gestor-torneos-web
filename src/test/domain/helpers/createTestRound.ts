@@ -1,4 +1,4 @@
-import type { Round } from "../../domain/models/Round";
+import type { Round } from "../../../domain/models/Round";
 
 export function createTestRound(
     overrides: Partial<Round> = {}

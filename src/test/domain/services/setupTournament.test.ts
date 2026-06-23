@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import type { TournamentSettings } from "../../domain/models/TournamentSettings";
-import { setupTournament } from "../../domain/services/tournament/setupTournament";
+import type { TournamentSettings } from "../../../domain/models/TournamentSettings";
+import { setupTournament } from "../../../domain/services/tournament/setupTournament";
 
 const playersAlias = ["p1", "p2", "p3", "p4", "p5", "p6"];
 const settings: TournamentSettings = {

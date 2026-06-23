@@ -3,26 +3,28 @@ import type { TournamentStorageSchema } from "./types";
 
 export class TournamentStorageService {
     private static KEY = "tournaments:v1";
-    private static DEFAULT: TournamentStorageSchema = {
-        version: 1,
-        tournaments: [],
-        lastOpenedTournamentId: null
-    };
+    private createDefaultSchema(): TournamentStorageSchema {
+        return {
+            version: 1,
+            tournaments: [],
+            lastOpenedTournamentId: null
+        }
+    }
 
     private read(): TournamentStorageSchema {
         const data = localStorage.getItem(TournamentStorageService.KEY);
         
         // Caso 1: Null check
-        if (data === null) return TournamentStorageService.DEFAULT;
+        if (data === null) return this.createDefaultSchema();
 
         // Caso 2: Json corrupto o incompleto
         try {
             const parsedData = JSON.parse(data);
-
+            console.log(parsedData);
             return parsedData;
         } catch (error) {
             console.error(error);
-            return TournamentStorageService.DEFAULT;
+            return this.createDefaultSchema();
         }
 
     }

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { createTestTournament } from "../helpers/createTestTournamen";
-import { updateTournamentStatus } from "../../domain/services/tournament/updateTournamentStatus";
+import { updateTournamentStatus } from "../../../domain/services/tournament/updateTournamentStatus";
 import { createTestRound } from "../helpers/createTestRound";
 
 
