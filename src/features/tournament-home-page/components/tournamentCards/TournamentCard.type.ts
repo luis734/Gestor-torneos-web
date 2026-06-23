@@ -1,10 +1,6 @@
-import type { BadgeVariant } from "../../../../components/ui/badge/Badge.types"
+import type { Tournament } from "../../../../domain/models/Tournament";
 
 export type CardProp = {
-    id?: string;
-    status: BadgeVariant;
-    tournamentName: string;
-    playersCount: number;
-    roundsCount: number;
-    lastSync: string;
+    tournament: Tournament,
+    onClick: (value: string) => void,
 }

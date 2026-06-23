@@ -3,44 +3,40 @@ import { Badge } from "../../../../components/ui/badge";
 import { Button } from "../../../../components/ui/button";
 import { EmptyState } from "../../components/emptyState/EmptyState";
 import { TournamentCard } from "../../components/tournamentCards";
-import type { CardProp } from "../../components/tournamentCards/TournamentCard.type";
-import { getLastSync } from "./TournamentHomePage.types";
 import { TournamentStyles } from "./TournamentHomePage.style";
-import { createId } from "../../../../domain/utils/createId";
+import { TournamentStorageService } from "../../../../services/tournament-storage/TournamentStorageService";
+import type { Tournament } from "../../../../domain/models/Tournament";
+import { useTournamentStore } from "../../../../store/tournamentStore";
+import { TournamentManager } from "../../../../services/tournament-manager/TournamentManager";
 
 export function TournamentHomePage() {
-    // TODO Cambiar la lista por elementos guardados
-    const tournaments: CardProp[] = [
-        {
-            id: createId(),
-            status: "progress",
-            tournamentName: "Copa Mundial de Fútbol 2026",
-            playersCount: 832,
-            roundsCount: 7,
-            lastSync: "2026-06-17T14:30:00Z"
-        },
-        {
-            id: createId(),
-            status: "pending",
-            tournamentName: "Torneo de Ajedrez Regional",
-            playersCount: 64,
-            roundsCount: 6,
-            lastSync: "2026-06-16T09:15:00Z"
-        },
-        {
-            id: createId(),
-            status: "completed",
-            tournamentName: "Liga de Verano - Padel",
-            playersCount: 128,
-            roundsCount: 5,
-            lastSync: "2026-06-10T18:45:00Z"
-        }
-    ];
+    // Definimos el lo necesario para poder manejar los datos del storage
+    const storageService = new TournamentStorageService();
+    const setTournament = useTournamentStore(
+        state => state.setTournament
+    );
+    const manager = new TournamentManager(storageService, setTournament);
+
+    // Obtenemos la lista de elementos guardados desde el storage
+    const tournaments: Tournament[] = storageService.getAll();
+
+    function createNewTournament(): void {
+        console.log("Crear nuevo torneo");
+    }
+
+    function obtenerTorneo(id: string) : void {
+        console.log("Abrir torneo");
+        const result = manager.openTournament(id);
+        console.log("Result: ",result);
+    }
+
+    // localStorage.setItem("tournament:v1", JSON.stringify({version: 1, tournaments:[{id: "123", status: "progress", tournamentName: "Torneo Pitero", playersCount: 6, roundsCount: 10, lastSync: "2026-06-17T14:30:00Z"}], lastOpenedTournamentId: null}))
+    
 
     return (
         <div className={TournamentStyles.mainContainer}>
             {
-                tournaments.length === 0 ? <EmptyState></EmptyState> :
+                tournaments.length === 0 ? <EmptyState onClick={createNewTournament}></EmptyState> :
                 <div id="listaTorneos" className={TournamentStyles.listConainer}>
                     <section className={TournamentStyles.listContainer}>
                         <div className={TournamentStyles.listInfo}>
@@ -63,11 +59,8 @@ export function TournamentHomePage() {
                             tournaments.map((tournament) =>
                                 <TournamentCard
                                     key={tournament.id}
-                                    status={tournament.status}
-                                    tournamentName={tournament.tournamentName}
-                                    playersCount={tournament.playersCount}
-                                    roundsCount={tournament.roundsCount}
-                                    lastSync={getLastSync(tournament.lastSync)}>
+                                    tournament={tournament}
+                                    onClick={obtenerTorneo}>
                                 </TournamentCard>
                             )
                         }
@@ -85,7 +78,7 @@ export function TournamentHomePage() {
                                     </Button>
                                 </div>
                             :
-                                <Button variant="primary">
+                                <Button variant="primary" onClick={createNewTournament}>
                                     <div className={TournamentStyles.buttonNewTournament}>
                                         <PlusIcon className="h-3 w-3" />
                                         <span>Crear torneo</span>

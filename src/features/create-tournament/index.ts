@@ -1,0 +1,1 @@
+export { CreateTournament } from "./pages/createTournament"

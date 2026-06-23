@@ -1,8 +1,9 @@
 import { PlusIcon, TrophyIcon } from "../../../../assets/icons";
 import { Button } from "../../../../components/ui/button";
 import { EmptyStateStyles } from "./EmptyState.styles";
+import { type EmptyStateProps } from "./EmptyStat.type";
 
-export function EmptyState() {
+export function EmptyState({onClick}:EmptyStateProps) {
     return (
         <div className={EmptyStateStyles.container}>
             <div className={EmptyStateStyles.iconContainer}>
@@ -15,7 +16,7 @@ export function EmptyState() {
             </div>
 
             <div className="flex flex-col w-sm">
-                <Button>
+                <Button onClick={onClick}>
                     <div className={EmptyStateStyles.buttonContainer}>
                         <PlusIcon className="h-4 w-4"/> Crear torneo
                     </div>

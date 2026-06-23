@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { TournamentHomePage } from "../features/tournament-home-page";
-import { DashboardPage } from "../features/dashboard/DashboardPage";
+import { CreateTournament } from "../features/create-tournament";
 import { AppLayout } from "../layouts/app-layout";
 
 export function AppRouter() {
@@ -9,7 +9,7 @@ export function AppRouter() {
             <Routes>
                 <Route path="/" element={<AppLayout />}>
                     <Route index element={<TournamentHomePage />} />
-                    <Route path="create" element={<DashboardPage />} />
+                    <Route path="create" element={<CreateTournament />} />
                 </Route>
             </Routes>
         </BrowserRouter>
