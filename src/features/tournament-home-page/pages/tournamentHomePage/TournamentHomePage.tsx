@@ -8,8 +8,12 @@ import { TournamentStorageService } from "../../../../services/tournament-storag
 import type { Tournament } from "../../../../domain/models/Tournament";
 import { useTournamentStore } from "../../../../store/tournamentStore";
 import { TournamentManager } from "../../../../services/tournament-manager/TournamentManager";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../../../router/routes";
 
 export function TournamentHomePage() {
+    const navigate = useNavigate();
+    const MAXTOURNAMENT = 10;
     // Definimos el lo necesario para poder manejar los datos del storage
     const storageService = new TournamentStorageService();
     const setTournament = useTournamentStore(
@@ -21,7 +25,7 @@ export function TournamentHomePage() {
     const tournaments: Tournament[] = storageService.getAll();
 
     function createNewTournament(): void {
-        console.log("Crear nuevo torneo");
+        navigate(routes.createTournament);
     }
 
     function obtenerTorneo(id: string) : void {
@@ -46,7 +50,7 @@ export function TournamentHomePage() {
                                 <Badge>
                                     <div className={TournamentStyles.listBadge}>
                                         <ListTodoIcon className="h-3 w-3" />
-                                        <span className="text-caption">{tournaments.length}/3</span>
+                                        <span className="text-caption">{tournaments.length}/{MAXTOURNAMENT}</span>
                                     </div>
                                 </Badge>
                             </div>
@@ -65,12 +69,12 @@ export function TournamentHomePage() {
 
                     <section className={TournamentStyles.buttonSection}>
                         {
-                            tournaments.length >= 3 ?
+                            tournaments.length >= MAXTOURNAMENT ?
                                 <div className={TournamentStyles.buttonLimited}>
                                     <Button variant="ghost" disabled>
                                         <div className={TournamentStyles.buttonLimitedContent}>
                                             <LockIcon className="h-3 w-3" />
-                                            <span className={TournamentStyles.buttonLimitedSpan}>Limite alcanzado - 3 torneos max.</span>
+                                            <span className={TournamentStyles.buttonLimitedSpan}>Limite alcanzado - 10 torneos max.</span>
                                         </div>
                                     </Button>
                                 </div>

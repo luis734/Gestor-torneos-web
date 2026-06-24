@@ -7,7 +7,7 @@ export const TournamentStyles = {
     listTitle: "text-h3 text-foreground font-bold",
     listMessage: "text-caption text-border-strong",
     listBadge: "flex gap-1 items-center text-foreground-muted font-mono",
-    buttonSection: "flex flex-col w-sm",
+    buttonSection: "flex flex-col sm:w-sm w-2xs",
     buttonLimited: "flex justify-center border-1 border-dashed border-border-strong rounded-[10px] w-full",
     buttonLimitedContent: "flex gap-1 items-center text-border-strong font-mono",
     buttonLimitedSpan: "text-caption font-sans font-bold",

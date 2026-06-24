@@ -20,7 +20,6 @@ export class TournamentStorageService {
         // Caso 2: Json corrupto o incompleto
         try {
             const parsedData = JSON.parse(data);
-            console.log(parsedData);
             return parsedData;
         } catch (error) {
             console.error(error);

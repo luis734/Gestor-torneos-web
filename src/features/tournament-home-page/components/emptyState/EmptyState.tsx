@@ -15,7 +15,7 @@ export function EmptyState({onClick}:EmptyStateProps) {
                 <p className={EmptyStateStyles.message}>Empieza tu noche de juego. Crea un torneo Round Robin, agrega jugadores y registra puntos en segundos.</p>
             </div>
 
-            <div className="flex flex-col w-sm">
+            <div className="flex flex-col w-full">
                 <Button onClick={onClick}>
                     <div className={EmptyStateStyles.buttonContainer}>
                         <PlusIcon className="h-4 w-4"/> Crear torneo

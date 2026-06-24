@@ -28,4 +28,10 @@ export class TournamentManager {
 
         return true;
     }
+
+    // TODO Posibles funciones a implementar
+    // createTournament(payload);
+    // saveTournament();
+    // closeTournament();
+    // restoreLastTournament();
 }
