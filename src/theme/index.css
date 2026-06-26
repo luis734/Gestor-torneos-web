@@ -7,7 +7,7 @@ body {
     font-family: var(--font-sans);
 }
 
-/* En tu CSS global */
+/* Se quitan las flechas del input number */
 .no-spinner::-webkit-outer-spin-button,
 .no-spinner::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -16,4 +16,22 @@ body {
 
 .no-spinner {
   -moz-appearance: textfield;
+}
+
+/* Scrollbar minimalista */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.15);
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.25);
 }

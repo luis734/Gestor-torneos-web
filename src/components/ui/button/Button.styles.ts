@@ -11,4 +11,4 @@ export const sizeStyles = {
     lg: "px-6 py-3 h-[56px] text-body",
 }
 
-export const defaultStyles = "focus:ring-2 rounded-[8px] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200";
+export const defaultStyles = "w-full focus:ring-2 rounded-[8px] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200";
