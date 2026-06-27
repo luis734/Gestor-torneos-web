@@ -36,15 +36,17 @@ export function TournamentCard({onClick,tournament: {id, status="draft", name, p
 
 
     return (
-        <div className={`flex flex-col gap-2 sm:w-sm w-2xs bg-surface p-3 rounded-[10px] border-l-[8px] ${borderStatus[status]}`}>
+        <div className={`flex flex-col gap-2 sm:w-md w-2xs bg-surface p-3 rounded-[10px] border-l-[8px] ${borderStatus[status]}`}>
             <section id="status" className="flex items-center justify-between w-full">
                 <div>
                     <Badge variant={BadgeStatus[status]}>{statusText[status]}</Badge>
                 </div>
 
-                <Button variant="ghost" size="sm">
-                    <TrashIcon className="text-danger h-4 w-4"></TrashIcon>  
-                </Button>
+                <div>
+                    <Button variant="ghost" size="sm">
+                        <TrashIcon className="text-danger h-4 w-4"></TrashIcon>  
+                    </Button>
+                </div>
             </section>
 
             <section id="title" className="flex items-center text-body text-foreground">

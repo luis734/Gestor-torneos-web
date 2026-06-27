@@ -38,8 +38,8 @@ export function TournamentHomePage() {
         <div className={TournamentStyles.mainContainer}>
             {
                 tournaments.length === 0 ? <EmptyState onClick={createNewTournament}></EmptyState> :
-                <div id="listaTorneos" className={TournamentStyles.listConainer}>
-                    <section className={TournamentStyles.listContainer}>
+                <div id="listaTorneos" className={TournamentStyles.listContainer}>
+                    <section className={TournamentStyles.sectionContainer}>
                         <div className={TournamentStyles.listInfo}>
                             <div className={TournamentStyles.listText}>
                                 <span className={TournamentStyles.listTitle}>Mis Torneos</span>

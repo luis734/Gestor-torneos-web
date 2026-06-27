@@ -2,7 +2,7 @@ import { useId } from "react";
 import { components, type BaseInputProps } from "./BaseInput.types";
 import { errorMessage, labelStyles } from "./BaseInput.styles";
 
-export function BaseInput({id, variant="text", label, placeholder, disabled = false, error = {hasError: false, msg: ""}, value, onChange, onKeyDown}:BaseInputProps) {
+export function BaseInput({id, variant="text", label, placeholder, disabled = false, error, value, onChange, onKeyDown}:BaseInputProps) {
     const inputId = useId(); // Se crea un id unico en caso de que no se pase alguno
     const InputComponent = components[variant];
 
@@ -20,9 +20,9 @@ export function BaseInput({id, variant="text", label, placeholder, disabled = fa
 
             {
                 // Mensaje de error
-                error.hasError &&
+                error &&
                 <span className={errorMessage}>
-                    {error.msg}
+                    {error}
                 </span>
             }
         </div>

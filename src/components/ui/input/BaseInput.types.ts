@@ -19,7 +19,7 @@ export type BaseInputProps = {
     label?: string;
     placeholder?: string;
     disabled?: boolean;
-    error?: {hasError: boolean, msg?: string};
+    error?: string;
     value?: string;
     minValue?: number;
     minLength?: number;

@@ -15,7 +15,7 @@ export function InputExample() {
 
             <BaseInput label="Number input" value={number} onChange={setNumber} variant="number"></BaseInput>
             
-            <BaseInput label="With Error" error={{hasError: true, msg: "Mensaje de error"}} placeholder="Required field"></BaseInput>
+            <BaseInput label="With Error" error={"Mensaje de error"}placeholder="Required field"></BaseInput>
 
             <BaseInput label="Disabled" placeholder="Cannot edit this" disabled></BaseInput>
 
